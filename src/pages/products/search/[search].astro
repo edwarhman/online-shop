@@ -1,0 +1,32 @@
+---
+import Product from "../../../components/Product.astro";
+import Layout from "../../../layouts/Layout.astro";
+import { getAllProducts } from "../../../services/products";
+
+export const prerender = false
+
+const products = await getAllProducts()
+const { search } = Astro.params
+console.log({search})
+---
+
+<Layout title="products.">
+    <main>
+        <p>Results for: "{search}": {products.length}</p>
+        <section>
+            {
+                products.map((product)=> (
+                    <Product 
+                        body={product.description}
+                        title={product.title}
+                        href={product.images[0]}
+                        id={product.id} 
+                        category={product.category}
+                        price={product.price}
+                        score={product.rating}
+                    />
+                ))
+            }
+        </section>
+    </main>
+</Layout>

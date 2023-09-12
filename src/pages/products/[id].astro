@@ -1,0 +1,41 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getAllProducts, getProductById } from "../../services/products";
+import Layout from "../../layouts/Layout.astro";
+
+const { id } = Astro.params
+
+if (!id) {
+	return
+}
+
+const product = await getProductById({id})
+
+
+
+export const getStaticPaths = (() => {
+	return getAllProducts().then(result => 
+	result.map(product => ({
+		params: { id: product.id}
+	})))
+}) satisfies GetStaticPaths;
+---
+
+<Layout title="product">
+    <main>
+		<section>
+			{
+				product?.images.map(image => (
+					<img src={image} alt={image}>
+				))
+			}
+		</section>
+		<h2>{product?.title}</h2>
+		<p>{product?.description}</p>
+		<p>{product?.price}$</p>
+		<p>Brand: {product?.brand}</p>
+		<p>Stock: {product?.stock}</p>
+		<button>Buy</button>
+		<button>Share</button>
+	</main>
+</Layout>
