@@ -1,12 +1,14 @@
 ---
 import Product from "../../../components/Product.astro";
 import Layout from "../../../layouts/Layout.astro";
-import { getAllProducts } from "../../../services/products";
+import { getAllProducts, searchProducts } from "../../../services/products";
 
 export const prerender = false
 
-const products = await getAllProducts()
 const { search } = Astro.params
+if(!search) return
+const products = await searchProducts({search})
+console.log({products})
 console.log({search})
 ---
 
