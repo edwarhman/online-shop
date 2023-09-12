@@ -1,9 +1,10 @@
-import {products} from '../database/products.json'
+import { products } from '../database/products.json'
 
-export const getAllProducts =async () => {
-    return products
+export const getAllProducts = async (): Promise<typeof products> => {
+  return products
 }
 
-export const getProductById = async ({id} : {id: string}) => {
-    return products.find((el) => el.id.toString() === id)
+export const getProductById = async ({ id }: { id: string }): Promise<typeof products[0] | undefined> => {
+  console.log({})
+  return products.find((el) => el.id.toString() === id)
 }
