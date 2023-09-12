@@ -1,20 +1,20 @@
 ---
-import Product from "../../../components/Product.astro";
-import Layout from "../../../layouts/Layout.astro";
-import { getAllProducts, searchProducts } from "../../../services/products";
+import Product from "../../components/Product.astro";
+import Layout from "../../layouts/Layout.astro";
+import { searchProducts } from "../../services/products";
 
 export const prerender = false
-
-const { search } = Astro.params
-if(!search) return
+const { searchParams } = Astro.url
+const search = searchParams.get('search') || ' '
 const products = await searchProducts({search})
 console.log({products})
-console.log({search})
+
+// Default page when products search is blank
 ---
 
 <Layout title="products.">
     <main>
-        <p>Results for: "{search}": {products.length}</p>
+        <p>Results for "{search}": {products.length}</p>
         <section>
             {
                 products.map((product)=> (
