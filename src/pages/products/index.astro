@@ -1,18 +1,17 @@
 ---
 import Product from "../../components/Product.astro";
-import Layout from "../../layouts/Layout.astro";
+import Header from "../../layouts/Header.astro";
 import { searchProducts } from "../../services/products";
 
 export const prerender = false
 const { searchParams } = Astro.url
 const search = searchParams.get('search') || ' '
 const products = await searchProducts({search})
-console.log({products})
 
 // Default page when products search is blank
 ---
 
-<Layout title="products.">
+<Header title="products.">
     <main>
         <p>Results for "{search}": {products.length}</p>
         <section>
@@ -31,4 +30,4 @@ console.log({products})
             }
         </section>
     </main>
-</Layout>
+</Header>
