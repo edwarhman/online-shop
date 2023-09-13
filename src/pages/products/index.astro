@@ -3,7 +3,6 @@ import Product from "../../components/Product.astro";
 import Header from "../../layouts/Header.astro";
 import { searchProducts } from "../../services/products";
 
-export const prerender = false
 const { searchParams } = Astro.url
 const search = searchParams.get('search') || ' '
 const products = await searchProducts({search})

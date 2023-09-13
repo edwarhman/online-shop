@@ -1,18 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
-
-// export const rerender = false 
-
-const {pathname, searchParams} = Astro.url
-const mySearch = searchParams.get('search')
 ---
 <Layout title="Welcome to Astro.">
 	<main>
 		<form action="/products">
 			<input id='input' type="text" name="search" placeholder="Smartphones, Laptops..."/>
 			<button type="submit">Search</button>
-			<!-- <a href=`/products/search/`>search</a> -->
 		</form>
 	</main>
 </Layout>
