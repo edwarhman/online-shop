@@ -12,7 +12,6 @@ const products = await searchProducts({search})
 
 <Header title="products" search={search} products={products}>
     <main>
-        <p>Results for "{search}": {products.length}</p>
         <section>
             {
                 products.map((product)=> (

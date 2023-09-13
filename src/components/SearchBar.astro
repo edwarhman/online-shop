@@ -30,6 +30,7 @@ console.log({trueCategories})
             <section> {
                 trueCategories.map(el => (<span>{el.name} - {el.count}</span>))
             }
+                    <p>Results for "{search}": {products.length}</p>
             </section>) : undefined
     }
 </div>
