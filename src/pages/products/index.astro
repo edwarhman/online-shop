@@ -4,13 +4,13 @@ import Header from "../../layouts/Header.astro";
 import { searchProducts } from "../../services/products";
 
 const { searchParams } = Astro.url
-const search = searchParams.get('search') || ' '
+const search = searchParams.get('search') || ''
 const products = await searchProducts({search})
 
 // Default page when products search is blank
 ---
 
-<Header title="products">
+<Header title="products" search={search} products={products}>
     <main>
         <p>Results for "{search}": {products.length}</p>
         <section>
