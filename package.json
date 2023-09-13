@@ -2,9 +2,6 @@
   "dependencies": {
     "astro": "3.0.12"
   },
-  "devDependencies": {
-    "typescript": "^5.2.2"
-  },
   "name": "astro-test",
   "scripts": {
     "astro": "astro",
