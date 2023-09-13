@@ -11,7 +11,9 @@ if (!id) {
 
 const product = await getProductById({id})
 
-
+if (!product) {
+	return
+}
 
 export const getStaticPaths = (() => {
 	return getAllProducts().then(result => 
@@ -21,7 +23,7 @@ export const getStaticPaths = (() => {
 }) satisfies GetStaticPaths;
 ---
 
-<Header title="product">
+<Header title={product?.title}>
     <main>
 		<section>
 			{
