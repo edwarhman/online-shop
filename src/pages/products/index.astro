@@ -1,31 +1,31 @@
 ---
-import Product from "../../components/Product.astro";
-import Header from "../../layouts/Header.astro";
-import { searchProducts } from "../../services/products";
+import Product from '../../components/Product.astro'
+import Header from '../../layouts/Header.astro'
+import { searchProducts } from '../../services/products'
 
 const { searchParams } = Astro.url
 const search = searchParams.get('search') || ''
-const products = await searchProducts({search})
+const products = await searchProducts({ search })
 
 // Default page when products search is blank
 ---
 
 <Header title="products" search={search} products={products}>
-    <main>
-        <section>
-            {
-                products.map((product)=> (
-                    <Product 
-                        body={product.description}
-                        title={product.title}
-                        href={product.images[0]}
-                        id={product.id} 
-                        category={product.category}
-                        price={product.price}
-                        score={product.rating}
-                    />
-                ))
-            }
-        </section>
-    </main>
+	<main>
+		<section>
+			{
+				products.map((product) => (
+					<Product
+						body={product.description}
+						title={product.title}
+						href={product.images[0]}
+						id={product.id}
+						category={product.category}
+						price={product.price}
+						score={product.rating}
+					/>
+				))
+			}
+		</section>
+	</main>
 </Header>

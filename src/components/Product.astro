@@ -1,25 +1,29 @@
 ---
 interface Props {
-	id: number;
-	title: string;
-	body: string;
-	href: string;
-	category: string;
-	price: number;
-	score: number;
+	id: number
+	title: string
+	body: string
+	href: string
+	category: string
+	price: number
+	score: number
 }
 
-const { id, href, title, body, category, price, score } = Astro.props;
+const { id, href, title, body, category, price, score } = Astro.props
 const { i } = Astro.params
 ---
 
-<li class="group bg-gray-800 p-0 list-none rounded-lg shadow-sm transition ease-in-out bg-bottom hover:bg-top hover:bg-gradient-to-r to-cyan-500 from-blue-800">
-	<a class="w-full " href=`/products/${id}`>
-		<img class="object-fill w-full" src={href} alt={title} srcset="">
-		<h2 class="m-0 text-2xl transition ease-in-out group-hover:text-yellow-400 font-bold">
+<li
+	class="group list-none rounded-lg bg-gray-800 from-blue-800 to-cyan-500 bg-bottom p-0 shadow-sm transition ease-in-out hover:bg-gradient-to-r hover:bg-top"
+>
+	<a class="w-full" href=`/products/${id}`>
+		<img class="w-full object-fill" src={href} alt={title} srcset="" />
+		<h2
+			class="m-0 text-2xl font-bold transition ease-in-out group-hover:text-yellow-400"
+		>
 			{title}
 		</h2>
-		<div class="space-y-5 [&>p]:mt-3 [&>p]:mb-0">
+		<div class="[&>p]:mt-3 [&>p]:mb-0 space-y-5">
 			<p>
 				{body}
 			</p>
