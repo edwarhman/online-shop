@@ -18,24 +18,26 @@ const { i } = Astro.params
 	class="group list-none rounded-lg bg-gray-800 from-blue-800 to-cyan-500 bg-bottom p-0 shadow-sm transition ease-in-out hover:bg-gradient-to-r hover:bg-top overflow-hidden"
 >
 	<a class="w-full" href=`/products/${id}`>
-		<div class="overflow-hidden">
-			<img class="w-full object-fill group-hover:scale-125" src={href} alt={title} srcset="" />
+		<div class="overflow-hidden aspect-square">
+			<img class="aspect-square object-cover group-hover:scale-125" src={href} alt={title} srcset="" />
 		</div>
-		<div class="[&>p]:mt-3 [&>p]:mb-0 [&>p]:space-y-5 m-3 relative">
-			<h2
-				class="m-2 text-2xl font-bold transition ease-in-out group-hover:text-yellow-400"
-			>
-				{title}
-			</h2>
-			<p>
-				{body}
-			</p>
-			<p>{price}$</p>
+		<div class="[&>p]:mt-3 [&>p]:mb-0 [&>p]:space-y-5 m-3 mt-4 relative pt-0">
 			<div class="flex justify-between items-center">
 				<p class="bg-purple-400 rounded-lg px-2 py-1 text-sm">
 					{category}
 				</p>
 				<RatingStars rating={score} />
+			</div>
+			<h2
+				class="my-4 max-h-16 text-3xl font-bold transition ease-in-out group-hover:text-yellow-400"
+			>
+				{title}
+			</h2>
+			<p class="mt-5 overflow-hidden text-ellipsis max-h-28">
+				{body}
+			</p>
+			<div class="flex justify-end">
+				<p class="text-4xl mr-2">{price}$</p>
 			</div>
 		</div>
 	</a>
