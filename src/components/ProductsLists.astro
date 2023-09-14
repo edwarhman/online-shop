@@ -1,0 +1,26 @@
+---
+import Product from "./Product.astro";
+
+interface Props {
+    products: any[]
+}
+
+const {products} = Astro.props
+---
+
+
+<ul class="grid gap-4 col-start-1 col-end-3 sm:grid-cols-2 md:grid-cols md:gap-4 lg:grid-cols-3 xl:grid-cols-4">
+    {
+        products.map((product: any) => (
+            <Product
+            body={product.description}
+            title={product.title}
+            href={product.images[0]}
+            id={product.id}
+            category={product.category}
+            price={product.price}
+            score={product.rating}
+            />
+        ))
+    }
+</ul>
