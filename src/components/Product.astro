@@ -1,4 +1,5 @@
 ---
+import RatingStars from './RatingStars.astro'
 interface Props {
 	id: number
 	title: string
@@ -32,6 +33,7 @@ const { i } = Astro.params
 			</p>
 			<p>{price}$</p>
 			<p>{score}</p>
+			<RatingStars rating={score} />
 		</div>
 	</a>
 </li>
