@@ -13,9 +13,10 @@ const products = await searchProducts({ search })
 <Header title="products" search={search} products={products}>
 	<main>
 		<section>
-			{
-				products.map((product) => (
-					<Product
+			<ul class="grid gap-4 col-start-1 col-end-3 sm:grid-cols-2 md:grid-cols-3 md:gap-4 lg:grid-cols-4 ">
+				{
+					products.map((product) => (
+						<Product
 						body={product.description}
 						title={product.title}
 						href={product.images[0]}
@@ -23,9 +24,10 @@ const products = await searchProducts({ search })
 						category={product.category}
 						price={product.price}
 						score={product.rating}
-					/>
-				))
-			}
+						/>
+					))
+				}
+			</ul>
 		</section>
 	</main>
 </Header>
