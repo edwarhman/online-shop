@@ -1,6 +1,7 @@
 ---
 import Product from '../../components/Product.astro'
 import ProductsLists from '../../components/ProductsLists.astro'
+import SearchInfo from '../../components/SearchInfo.astro'
 import Header from '../../layouts/Header.astro'
 import { searchProducts } from '../../services/products'
 
@@ -11,8 +12,9 @@ const products = await searchProducts({ search })
 // Default page when products search is blank
 ---
 
-<Header title="products" search={search} products={products}>
+<Header title="products" search={search}>
 	<main>
+		<SearchInfo products={products} search={search} />
 		<section>
 			<ProductsLists products={products}/>
 		</section>

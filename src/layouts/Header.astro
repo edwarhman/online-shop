@@ -1,22 +1,20 @@
 ---
 import SearchBar from '../components/SearchBar.astro';
+import SearchInfo from '../components/SearchInfo.astro';
 import Layout from './Layout.astro'
 interface Props {
 	title: string;
     search: string;
-    products: any[]
 }
 
-const { title, search, products} = Astro.props;
+const { title, search} = Astro.props;
 ---
 
 <Layout title={title}>    
-    <header>
-        <h1><a href="/">My asewome E-commerce</a></h1>
+    <header class="bg-black text-white">
+        <h1 class="text-3xl font-bold"><a href="/">My asewome E-commerce</a></h1>
         <SearchBar 
             search={search}
-            tags={true}
-            products={products}
         />
     </header>
     <slot />

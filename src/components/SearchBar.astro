@@ -1,17 +1,10 @@
 ---
-const {search, tags, products} = Astro.props
+const {search} = Astro.props
 
 interface Props {
     search: string
-    tags: boolean
-    products: any[]
 }
 
-const categories = [...new Set(products.map(el => el.category))]
-const trueCategories = categories.map(category => {
-    return {name: category, count: products.filter(product => product.category === category ).length }
-})
-console.log({trueCategories})
 ---
 
 <div>
@@ -25,12 +18,4 @@ console.log({trueCategories})
         />
         <button type="submit">Search</button>
     </form>
-    {
-        tags ? (
-            <section> {
-                trueCategories.map(el => (<span>{el.name} - {el.count}</span>))
-            }
-                    <p>Results for "{search}": {products.length}</p>
-            </section>) : undefined
-    }
 </div>
