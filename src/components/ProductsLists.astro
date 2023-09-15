@@ -9,7 +9,7 @@ const {products} = Astro.props
 ---
 
 
-<ul class="grid gap-4 col-start-1 col-end-3 sm:grid-cols-2 md:grid-cols md:gap-4 lg:grid-cols-3 xl:grid-cols-4">
+<div class="grid gap-5 col-start-1 col-end-3 sm:grid-cols-2 md:grid-cols md:gap-4 lg:grid-cols-3 xl:grid-cols-4">
     {
         products.map((product: any) => (
             <Product
@@ -23,4 +23,4 @@ const {products} = Astro.props
             />
         ))
     }
-</ul>
+</div>
