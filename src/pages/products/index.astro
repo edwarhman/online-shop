@@ -13,7 +13,7 @@ const products = await searchProducts({ search })
 ---
 
 <Header title="products" search={search}>
-	<main>
+	<main class="px-5">
 		<SearchInfo products={products} search={search} />
 		<section>
 			<ProductsLists products={products}/>
