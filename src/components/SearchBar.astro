@@ -7,21 +7,21 @@ interface Props {
 
 ---
 
-    <form action="/products" class="flex shadow-xl">
+    <form action="/products" class="flex shadow-xl bg-vilet-900 rounded-full">
         <input 
         id='input'
         type="text"
         name="search"
         placeholder="Smartphones, Laptops..."
         value={search}
-        class="p-2 rounded-l-lg text-gray-900"
+        class="p-2 rounded-l-full text-gray-900"
         />
         <button 
-            class="bg-purple-500 text-white rounded-r-lg p-2 flex"
+            class="bg-violet-900 text-white rounded-full p-2 px-4 flex items-center font-bold"
             type="submit"
         >
         <span class="mx-1">Search</span>  
-        <svg class="icon icon-tabler icon-tabler-search w-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <svg class="icon icon-tabler icon-tabler-search w-5 mr-1" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
             <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
             <path d="M21 21l-6 -6"></path>

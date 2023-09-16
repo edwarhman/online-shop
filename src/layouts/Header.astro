@@ -11,10 +11,10 @@ const { title, search} = Astro.props;
 ---
 
 <Layout title={title}>    
-    <header class="bg-violet-900 text-white p-3 py-6 space-y-4 md:space-y-0 flex flex-col md:flex-row justify-between items-center">
-        <h1 class="font-pacifico col-span-3 text-4xl font-bol"><a href="/">Aeconne Shop</a></h1>
+    <header class="bg-volet-900 select-none text-hite p-3 py-6 space-y-4 md:space-y-0 flex flex-col md:flex-row justify-between items-center">
+        <h1 class="font-pacifico mb-2 col-span-3 text-4xl font-bol"><a href="/">Aeconne Shop</a></h1>
         <SearchBar
-            search={search}
+        search={search}
         />
     </header>
     <slot />
