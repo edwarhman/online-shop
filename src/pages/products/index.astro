@@ -13,9 +13,9 @@ const products = await searchProducts({ search })
 ---
 
 <Header title="products" search={search}>
-	<main class="px-5">
+	<main class="px-5 mt-4">
 		<SearchInfo products={products} search={search} />
-		<section>
+		<section class="mt-6">
 			<ProductsLists products={products}/>
 		</section>
 	</main>

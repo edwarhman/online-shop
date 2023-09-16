@@ -11,14 +11,13 @@ const trueCategories = categories.map(category => {
     return {name: category, count: products.filter(product => product.category === category ).length }
 })
 ---
-
-<div>
+<section>
         {
             products.length > 0 ? (
-                <section> {
-                trueCategories.map(el => (<span>{el.name} - {el.count}</span>))
+                <p class="text-2xl font-bold text-zinc-400">Results for "{search}": {products.length}</p>
+                <div class="flex flex-wrap mt-1"> {
+                    trueCategories.map(el => (<div class="bg-purple-400 m-0.5 text-sm text-white rounded-lg p-1 px-3">{el.name} - {el.count}</div>))
             }
-            <p>Results for "{search}": {products.length}</p>
-            </section>) : undefined
+            </div>) : undefined
         }
-</div>
+</section>
