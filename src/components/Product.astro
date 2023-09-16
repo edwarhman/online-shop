@@ -14,14 +14,14 @@ const { id, href, title, body, category, price, score } = Astro.props
 const { i } = Astro.params
 ---
 
-	<a class="group bg-gray-100 p-0 pb-5 shadow-md transition ease-in-out hover:shadow-xl flex flex-col justify-between" href=`/products/${id}`>
+	<a class="group bg-purple-100 p-0 pb-5 shadow-md transition ease-in-out hover:shadow-xl flex flex-col justify-between" href=`/products/${id}`>
 		<div class="overflow-hidden">
 			<img class="aspect-[16/11] w-full object-cover group-hover:scale-125" src={href} alt={title} srcset="" />
 		</div>
 		<div class="mx-4 mt-4 relative pt-0 flex flex-col grow justify-between">
 			<div>
 			<div class="flex justify-between items-center">
-				<p class="bg-purple-400 text-white rounded-lg px-2 py-1 text-sm">
+				<p class="bg-purple-500 text-white rounded-lg px-2 py-1 text-sm">
 					{category}
 				</p>
 				<RatingStars rating={score} />
@@ -38,4 +38,3 @@ const { i } = Astro.params
 			<strong class="text-3xl mt-4 text-right self-end">{price}$</strong>
 		</div>
 	</a>
-	
