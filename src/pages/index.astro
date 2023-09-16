@@ -1,11 +1,12 @@
 ---
+import SearchBar from '../components/SearchBar.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 <Layout title="My asewome E-commerce">
-	<main>
-		<form action="/products">
-			<input id='input' type="text" name="search" placeholder="Smartphones, Laptops..."/>
-			<button type="submit">Search</button>
-		</form>
+	<!-- <main class="min-h-screen flex align-middle justify-center"> -->
+	<main class="min-h-screen grid content-center justify-center">
+		<div>
+			<SearchBar search=''/>
+		</div>
 	</main>
 </Layout>
