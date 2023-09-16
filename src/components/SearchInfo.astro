@@ -16,7 +16,7 @@ const trueCategories = categories.map(category => {
             products.length > 0 ? (
                 <p class="text-2xl font-bold text-zinc-800">Results for "{search}": {products.length}</p>
                 <div class="flex flex-wrap mt-2"> {
-                    trueCategories.map(el => (<div class="bg-purple-500 m-0.5 text-sm text-white rounded-lg p-1 px-3">{el.name} - {el.count}</div>))
+                    trueCategories.map(el => (<div class="bg-purple-700 m-0.5 text-sm text-white rounded-lg p-1 px-3">{el.name} - {el.count}</div>))
             }
             </div>) : undefined
         }
