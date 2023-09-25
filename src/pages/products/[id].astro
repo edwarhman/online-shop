@@ -3,6 +3,7 @@ import type { GetStaticPaths } from "astro";
 import { getAllProducts, getProductById } from "../../services/products";
 import Header from "../../layouts/Header.astro";
 
+export const prerender = true
 const { id } = Astro.params
 
 if (!id) {

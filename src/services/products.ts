@@ -9,7 +9,8 @@ export const getProductById = async ({
 }: {
 	id: string
 }): Promise<(typeof products)[0] | undefined> => {
-	return products.find((el) => el.id.toString() === id)
+	const response = await fetch(`${import.meta.env.PUBLIC_PRODUCTS_API}/products/${id}`)
+	return response.json()
 }
 
 export const searchProducts =async (
