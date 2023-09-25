@@ -12,16 +12,15 @@ export const getProductById = async ({
 	return products.find((el) => el.id.toString() === id)
 }
 
-export const searchProducts = async ({
-	search
-}: {
-	search: string
-}): Promise<typeof products> => {
-	return products.filter((product) => {
-		const values = Object.values(product)
-		return values
-			.join(' ')
-			.toLowerCase()
-			.match(new RegExp(`${search}`))
-	})
+export const searchProducts =async (
+	{search}: {search: string}
+): Promise<any> => {
+	let response
+	if(search) {
+		response = await fetch(`${import.meta.env.PUBLIC_PRODUCTS_API}/products?search=${search}`)
+	} else {
+		response = await fetch(`${import.meta.env.PUBLIC_PRODUCTS_API}/products`)
+	}
+
+	return response.json()
 }
