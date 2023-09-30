@@ -17,11 +17,10 @@ export const searchProducts =async (
 	{search}: {search: string}
 ): Promise<any> => {
 	let response
-	if(search) {
+	if(search && search.length > 0) {
 		response = await fetch(`${import.meta.env.PUBLIC_PRODUCTS_API}/products?search=${search}`)
 	} else {
 		response = await fetch(`${import.meta.env.PUBLIC_PRODUCTS_API}/products`)
 	}
-
-	return response.json()
+	return await response.json()
 }
