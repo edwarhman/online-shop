@@ -7,7 +7,6 @@ const MAX_RATING = 5
 const {rating} = Astro.props
 const filledStars = Array(Math.trunc(rating)).fill(1)
 const emptyStars = Array(MAX_RATING - Math.round(rating)).fill(1)
-console.log({rating, rounded: Math.round(rating), myArr: filledStars})
 ---
 
 <div class="grid grid-cols-5">
