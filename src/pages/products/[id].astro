@@ -16,7 +16,7 @@ if (!product) {
 	return
 }
 
-export const getStaticPaths = (() => {
+export const getStaticPaths = (async () => {
 	return getAllProducts().then(result => 
 	result.map(product => ({
 		params: { id: product.id}
