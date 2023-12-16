@@ -4,6 +4,7 @@ import { getAllProducts, getProductById } from "../../services/products";
 import Header from "../../layouts/Header.astro";
 import ProductGallery from "../../components/preact/ProductGallery"
 import Button from "../../components/Button.astro";
+import RatingStars from "../../components/RatingStars.astro";
 
 export const prerender = true
 const { id } = Astro.params
@@ -28,15 +29,21 @@ export const getStaticPaths = (async () => {
 
 <Header title={product?.title} search="">
     <main>
+		{console.log({product})}
 		<h2 class="text-3xl font-bold">{product?.title}</h2>
 		<ProductGallery client:load images={product.images}/>
-		<strong class="text-3xl mt-4 text-right self-end">{product.price}$</strong>
-		<div class="flex gap-4 justify-evenly">
+		<div class="grid grid-cols-2 items-centr mt-4">
+			<strong class="text-3xl font-normal mb-1 text-center self-end text-gray-800">{product.price}$</strong>
+			<div class="grid items-ceter content-end">
+				<RatingStars rating={product.rating} />
+				<span class="text-gray-600 text-right mr-4">Stock: {product?.stock}</span>
+			</div>
+		</div>
+		<p class="mt-4">Brand: {product?.brand}</p>
+		<p class="min-h-[80px]">{product?.description}</p>
+		<div class="flex gap-4 justify-evenly mb-5">
 			<Button className="text-4xl font-normal py-4 px-8">Buy</Button>
 			<Button className="text-4xl font-normal py-4 px-6">Share</Button>
 		</div>
-		<p>Brand: {product?.brand}</p>
-		<p>Stock: {product?.stock}</p>
-		<p>{product?.description}</p>
 	</main>
 </Header>
