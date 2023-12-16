@@ -17,5 +17,7 @@ const { title, search} = Astro.props;
         search={search}
         />
     </header>
-    <slot />
+    <div class="px-4">
+        <slot />
+    </div>
 </Layout>
