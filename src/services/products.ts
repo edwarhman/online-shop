@@ -8,7 +8,7 @@ export const getAllProducts = async (): Promise<typeof products> => {
 export const getProductById = async ({
 	id
 }: {
-	id: string
+	id: string | number
 }): Promise<(typeof products)[0] | undefined> => {
 	const response = await fetch(`${config.apiUrl}/products/${id}`)
 	return response.json()
