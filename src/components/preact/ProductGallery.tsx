@@ -15,17 +15,17 @@ function ProductGallery({
             <img
                 src={images[current]} 
                 alt="selected product image" 
-                class='w-full h-80 img object-cover'
+                class='w-full h-80 img object-cover rounded-xl'
             />
         </div>
         <ul class='flex gap-4 mt-4'>
             {
                 images.map((image, idx)=> (
-                <li class={`${idx === current ? 'border-gray-500' : ''} border`}>
+                <li class={`${idx === current ? 'border-gray-500' : ''} rounded-xl border`}>
                     <a onClick={()=> {
                         setCurrent(idx)
                     }} class='cursor-pointer'>
-                        <img class='object-cover h-20 aspect-square' src={image} />    
+                        <img class='object-cover h-20 aspect-square rounded-xl' src={image} />    
                     </a>
                 </li>
             ))}
