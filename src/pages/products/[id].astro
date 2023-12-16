@@ -2,6 +2,7 @@
 import type { GetStaticPaths } from "astro";
 import { getAllProducts, getProductById } from "../../services/products";
 import Header from "../../layouts/Header.astro";
+import ProductGallery from "../../components/preact/ProductGallery"
 
 export const prerender = true
 const { id } = Astro.params
@@ -26,14 +27,8 @@ export const getStaticPaths = (async () => {
 
 <Header title={product?.title} search="">
     <main>
-		<section>
-			{
-				product?.images.map(image => (
-					<img src={image} alt={image}>
-				))
-			}
-		</section>
-		<h2>{product?.title}</h2>
+		<h2 class="text-3xl font-bold">{product?.title}</h2>
+		<ProductGallery client:load images={product.images}/>
 		<p>{product?.description}</p>
 		<p>{product?.price}$</p>
 		<p>Brand: {product?.brand}</p>
