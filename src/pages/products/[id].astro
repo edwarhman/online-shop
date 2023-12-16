@@ -29,8 +29,7 @@ export const getStaticPaths = (async () => {
 
 <Header title={product?.title} search="">
     <main>
-		{console.log({product})}
-		<h2 class="text-3xl font-bold">{product?.title}</h2>
+		<h2 class="text-3xl font-bold mb-4">{product?.title}</h2>
 		<ProductGallery client:load images={product.images}/>
 		<div class="grid grid-cols-2 items-centr mt-4">
 			<strong class="text-3xl font-normal mb-1 text-center self-end text-gray-800">{product.price}$</strong>
