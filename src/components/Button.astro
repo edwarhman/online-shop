@@ -1,0 +1,15 @@
+---
+interface Props {
+    type?: 'submit'
+    className?: string
+}
+
+const {type, className} = Astro.props
+---
+
+<button 
+    class={`bg-violet-900 text-white rounded-full p-2 px-4 flex items-center font-bold ${className}`}
+    type={type}
+>
+    <slot />
+</button>
