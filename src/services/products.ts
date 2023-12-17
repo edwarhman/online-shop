@@ -1,3 +1,4 @@
+import config from '../../config'
 import { products } from '../database/products.json'
 
 export const getAllProducts = async (): Promise<typeof products> => {
@@ -7,9 +8,9 @@ export const getAllProducts = async (): Promise<typeof products> => {
 export const getProductById = async ({
 	id
 }: {
-	id: string
+	id: string | number
 }): Promise<(typeof products)[0] | undefined> => {
-	const response = await fetch(`${import.meta.env.PUBLIC_PRODUCTS_API}/products/${id}`)
+	const response = await fetch(`${config.apiUrl}/products/${id}`)
 	return response.json()
 }
 
@@ -18,9 +19,9 @@ export const searchProducts =async (
 ): Promise<any> => {
 	let response
 	if(search && search.length > 0) {
-		response = await fetch(`${import.meta.env.PUBLIC_PRODUCTS_API}/products?search=${search}`)
+		response = await fetch(`${config.apiUrl}/products?search=${search}`)
 	} else {
-		response = await fetch(`${import.meta.env.PUBLIC_PRODUCTS_API}/products`)
+		response = await fetch(`${config.apiUrl}/products`)
 	}
 	return await response.json()
 }
