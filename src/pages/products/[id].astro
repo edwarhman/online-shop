@@ -28,19 +28,19 @@ export const getStaticPaths = (async () => {
 ---
 
 <Header title={product?.title} search="">
-    <main class="max-w-5xl mx-auto">
-		<div class="product-layout-sm md:product-layout">
+    <main class="max-w-4xl mx-auto">
+		<div class="product-layout sm:product-layout-sm">
 			<h2 class="title text-3xl font-bold mb-4">{product?.title}</h2>
 			<div class="gallery">
 				<ProductGallery client:load images={product.images}/>
 			</div>
-			<strong class="price text-3xl font-normal mb-1 text-center self-end text-gray-800">{product.price}$</strong>
-			<div class="stars grid items-ceter content-end">
+			<strong class="price mt-4 sm:m-0 text-3xl font-normal self-end text-right text-gray-800">{product.price}$</strong>
+			<div class="stars grid items-start content-start">
+				<span class="text-gray-600 text-right">Stock: {product?.stock}</span>
 				<RatingStars rating={product.rating} />
-				<span class="text-gray-600 text-right mr-4">Stock: {product?.stock}</span>
 			</div>
-			<p class="brand mt-4">Brand: {product?.brand}</p>
-			<p class="description min-h-[80px]">{product?.description}</p>
+			<p class="brand mt-4 text-sm text-gray-500">Brand: {product?.brand}</p>
+			<p class="description mt-2 min-h-[80px]">{product?.description}</p>
 			<div class="buttons flex gap-4 justify-evenly mb-5">
 				<Button className="text-4xl font-normal py-4 px-8">Buy</Button>
 				<Button className="text-4xl font-normal py-4 px-6">Share</Button>
@@ -55,25 +55,28 @@ export const getStaticPaths = (async () => {
 	@tailwind utilities;
 
 	@layer utilities {
-		.product-layout-sm {
+		.product-layout {
 			display: grid;
 			grid-template-areas:
 			"title title"
 			"gallery gallery"
-			"price stars"
-			"price stars"
+			"none price"
+			"none stars"
 			"brand brand"
 			"description description"
 			"buttons buttons";
 		}
-		.product-layout {
+		.product-layout-sm {
 			display: grid;
 			grid-template-areas:
-			"gallery gallery title title"
-			"gallery gallery price stars"
-			"gallery gallery brand brand"
-			"gallery gallery description description"
-			"gallery gallery buttons buttons"
+			"gallery  title title"
+			"gallery  none price"
+			"gallery  brand stars"
+			"gallery  description description"
+			"gallery  buttons buttons";
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 3em;
+			row-gap: 0;
 		}
 	}
 	.title {
