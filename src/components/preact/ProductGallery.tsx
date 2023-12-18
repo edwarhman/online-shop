@@ -18,7 +18,7 @@ function ProductGallery({
                 class='w-full h-80 img object-cover rounded-xl'
             />
         </div>
-        <ul class='flex gap-4 mt-4'>
+        <ul class='flex gap-4 mt-5'>
             {
                 images.map((image, idx)=> (
                 <li class={`${idx === current ? 'border-gray-500' : ''} rounded-xl border`}>
