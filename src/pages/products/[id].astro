@@ -29,7 +29,7 @@ export const getStaticPaths = (async () => {
 
 <Header title={product?.title} search="">
     <main class="max-w-5xl mx-auto">
-		<div class="layout__container">
+		<div class="product-layout-sm md:product-layout">
 			<h2 class="title text-3xl font-bold mb-4">{product?.title}</h2>
 			<div class="gallery">
 				<ProductGallery client:load images={product.images}/>
@@ -50,16 +50,31 @@ export const getStaticPaths = (async () => {
 </Header>
 
 <style>
-	.layout__container {
-		display: grid;
-		grid-template-areas:
-		"title title"
-		"gallery gallery"
-		"price stars"
-		"price stars"
-		"brand brand"
-		"description description"
-		"buttons buttons";
+	@tailwind base;
+	@tailwind components;
+	@tailwind utilities;
+
+	@layer utilities {
+		.product-layout-sm {
+			display: grid;
+			grid-template-areas:
+			"title title"
+			"gallery gallery"
+			"price stars"
+			"price stars"
+			"brand brand"
+			"description description"
+			"buttons buttons";
+		}
+		.product-layout {
+			display: grid;
+			grid-template-areas:
+			"gallery gallery title title"
+			"gallery gallery price stars"
+			"gallery gallery brand brand"
+			"gallery gallery description description"
+			"gallery gallery buttons buttons"
+		}
 	}
 	.title {
 		grid-area: title;
